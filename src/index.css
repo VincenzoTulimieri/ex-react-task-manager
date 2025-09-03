@@ -9,3 +9,15 @@
 .vt-link-h1:hover{
   cursor: pointer;
 }
+
+/* colore status */
+
+.done{
+  background-color: #198754 !important;
+}
+.todo{
+  background-color: #dc3545 !important;
+}
+.doing{
+  background-color: #ffc107 !important;
+}
