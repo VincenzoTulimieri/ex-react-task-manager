@@ -3,3 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+.vt-link-h1{
+  all: unset;
+}
+.vt-link-h1:hover{
+  cursor: pointer;
+}
