@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
     return (
         <header>
             <nav className="navbar bg-body-tertiary">
                 <div className="container-fluid justify-content-between">
-                    <h1><Link to={'/'} className="vt-link-h1">Task List</Link></h1>
-                    <Link to={'add-task'} className="btn btn-primary" >Add Task</Link>
+                    <h1><NavLink to={'/'} className="vt-link-h1">Task List</NavLink></h1>
+                    <NavLink to={'add-task'} className="btn btn-primary" >Add Task</NavLink>
                 </div>
             </nav>
         </header>
