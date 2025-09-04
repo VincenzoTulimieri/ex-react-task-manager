@@ -20,17 +20,17 @@ export default function AddTask() {
         }
     }
 
-    function isValidTask(userTask){
+    function isValidTask(userTask) {
         if (!userTask.trim()) {
-            return {validation: false, message: 'Il nome non può essere vuoto, inserire nome della task'}
+            return { validation: false, message: 'Il nome non può essere vuoto, inserire nome della task' }
         }
         const symbols = "!@#$%^&*()-_=+[]{}|;:'\\,.<>?/`~";
-        if(userTask.split('').some(l=>symbols.includes(l))){
-            return {validation: false, message: 'Il nome non può includere simboli'}
+        if (userTask.split('').some(l => symbols.includes(l))) {
+            return { validation: false, message: 'Il nome non può includere simboli' }
         }
-        return {validation: true, message: 'Task valida'}
+        return { validation: true, message: 'Task valida' }
     }
-    const validationTask= isValidTask(nameTasks)
+    const validationTask = isValidTask(nameTasks)
 
     return (
         <>
@@ -65,18 +65,3 @@ export default function AddTask() {
         </>
     )
 }
-
-{/* <div class="alert alert-danger d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-  <div>
-    An example danger alert with an icon
-  </div>
-</div> */}
-
-
-{/* <div class="alert alert-success d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-  <div>
-    An example success alert with an icon
-  </div>
-</div> */}
