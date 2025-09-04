@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { GlobalContext } from "../context/GlobalContext"
 import { useParams } from "react-router-dom"
+
 export default function TaskDetails() {
     const { id } = useParams()
     const { tasks } = useContext(GlobalContext)
@@ -13,7 +14,6 @@ export default function TaskDetails() {
     const formatted = new Date(task.createdAt)
     const createdDate = formatted.toLocaleDateString("it-IT");
 
-    const statusCLass = task.status.replace(" ", "").toLowerCase()
 
     return (
         <>
@@ -24,19 +24,14 @@ export default function TaskDetails() {
                         <h3 className="card-title">{task.title}</h3>
                     </div>
                     <div className="col-12">
-                        <span>Descrizione: </span> 
-                        <span className="card-text size-text-card">{task.description}</span>
+                        <p className="card-text"><strong>Descrizione:</strong> {task.description}</p>
                     </div>
                     <div className="col-6">
-                        <span>Stato:</span> 
-                        <span className="card-text size-text-card">{task.status}</span>
+                        <p className="card-text"><strong>Stato:</strong> {task.status}</p>
                     </div>
-
-                    <div className="col-4">
-                        <span>Data di Creazione:</span>
-                        <span className="card-text size-text-card">{createdDate}</span>
+                    <div className="col-4"> 
+                        <p className="card-text"><strong>Data di Creazione:</strong> {createdDate}</p>
                     </div>
-
                     <div className="col-2">
                         <button type="button" className="btn btn-danger">Elimina Task</button>
                     </div>
