@@ -1,10 +1,11 @@
 import { useContext } from "react"
 import { GlobalContext } from "../context/GlobalContext"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 export default function TaskDetails() {
     const { id } = useParams()
-    const { tasks } = useContext(GlobalContext)
+    const navigate = useNavigate()
+    const { tasks, removeTask } = useContext(GlobalContext)
 
     const task = tasks.find(t => t.id === parseInt(id))
     if (!task) {
@@ -13,6 +14,18 @@ export default function TaskDetails() {
     // formattazione data
     const formatted = new Date(task.createdAt)
     const createdDate = formatted.toLocaleDateString("it-IT");
+
+
+    const deleteTask = async () =>{
+        try {
+            await removeTask(task.id)
+            alert('Task elimitata con successo')
+            navigate('/')
+        } catch (error) {
+            console.error(error)
+            alert(error.message)
+        }
+    }
 
 
     return (
@@ -33,7 +46,7 @@ export default function TaskDetails() {
                         <p className="card-text"><strong>Data di Creazione:</strong> {createdDate}</p>
                     </div>
                     <div className="col-2">
-                        <button type="button" className="btn btn-danger">Elimina Task</button>
+                        <button type="button" className="btn btn-danger" onClick={deleteTask}>Elimina Task</button>
                     </div>
                 </div>
             </div>
