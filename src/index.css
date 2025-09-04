@@ -21,3 +21,8 @@
 .doing{
   background-color: #ffc107 !important;
 }
+
+.container-button{
+  display: flex;
+  justify-content: center;
+}
