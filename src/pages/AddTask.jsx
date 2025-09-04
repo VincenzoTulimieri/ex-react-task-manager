@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useMemo } from "react"
 
 export default function AddTask() {
 
@@ -28,16 +28,17 @@ export default function AddTask() {
         if (userTask.split('').some(l => symbols.includes(l))) {
             return { validation: false, message: 'Il nome non può includere simboli' }
         }
-        return { validation: true, message: 'Task valida' }
+        return { validation: true, message: 'Nome Task valida' }
     }
-    const validationTask = isValidTask(nameTasks)
+    const validationTask = useMemo(()=>isValidTask(nameTasks),[nameTasks]) 
 
     return (
         <>
             <h1 className="mb-4">Aggiungi una nuova Task</h1>
             <form className="row g-3" onSubmit={sendDataTask}>
                 <div className="col-6">
-                    <input type="text" className="form-control mb-2" placeholder="Nome della task" value={nameTasks} onChange={(e) => setNameTasks(e.target.value)}></input>
+                    <label htmlFor="nome" className="mb-1"><strong>Nome:</strong></label>
+                    <input type="text" id="nome" className="form-control mb-2" placeholder="Nome della task" value={nameTasks} onChange={(e) => setNameTasks(e.target.value)}></input>
                     {nameTasks !== '' && (validationTask.validation ? (<div className="alert alert-success d-flex align-items-center" role="alert">
                         <div>
                             {validationTask.message}
@@ -49,14 +50,16 @@ export default function AddTask() {
                     </div>))}
                 </div>
                 <div className="col-2">
-                    <select className="form-select" ref={selectRef}>
+                    <label htmlFor="select" className="mb-1"><strong>Stato:</strong></label>
+                    <select className="form-select" ref={selectRef} defaultValue='To do' id="select">
                         <option value="To do">To do</option>
                         <option value="Doing">Doing</option>
                         <option value="Done">Done</option>
                     </select>
                 </div>
                 <div className="col-8">
-                    <textarea className="form-control" placeholder="Descrizione" rows="3" ref={descriptionRef}></textarea>
+                    <label htmlFor="descrizione" className="mb-1"><strong>Descrizione:</strong></label>
+                    <textarea className="form-control" placeholder="Descrizione" rows="3" ref={descriptionRef} id="descrizione"></textarea>
                 </div>
                 <div className="col-8 container-button">
                     <button type="submit" className="btn btn-primary mb-3">Aggiungi Task</button>
