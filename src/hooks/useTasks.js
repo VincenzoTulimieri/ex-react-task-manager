@@ -11,7 +11,7 @@ export default function useTasks() {
             .catch(err => console.error(err))
     }, [])
 
-    const addTask =async (newTask) => {
+    const addTask = async (newTask) => {
         const response = await fetch(`${VITE_URL_API}/tasks`,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -23,7 +23,18 @@ export default function useTasks() {
         }
         setTasks(prev=>[...prev, task])
     }
-    const removeTask = () => { }
+    const removeTask = async (taskId) => {
+        const response = await fetch(`${VITE_URL_API}/tasks/${taskId}`,{
+            method: 'DELETE',
+        })
+        const{success,message} = await response.json()
+        if(!success){
+            throw new Error(message)
+        }
+        
+        // rimozione di un elemento specifico in un array
+        setTasks(prev=> prev.filter(t=>t.id !== taskId))
+    }
     const updateTask = () => { }
 
 
