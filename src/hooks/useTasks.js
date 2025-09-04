@@ -22,7 +22,6 @@ export default function useTasks() {
             throw new Error(message)
         }
         setTasks(prev=>[...prev, task])
-        console.log(tasks)
     }
     const removeTask = () => { }
     const updateTask = () => { }

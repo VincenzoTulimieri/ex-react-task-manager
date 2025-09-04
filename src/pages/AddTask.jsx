@@ -7,9 +7,9 @@ export default function AddTask() {
     const selectRef = useRef()
     const descriptionRef = useRef()
 
-    const {tasks, addTask, removeTask, updateTask} = useTasks()
+    const { tasks, addTask, removeTask, updateTask } = useTasks()
 
-    function sendDataTask(e) {
+    async function sendDataTask(e) {
         e.preventDefault()
         const newTask = {
             title: nameTasks,
@@ -21,7 +21,17 @@ export default function AddTask() {
         } else {
             console.log('New Task:', newTask)
         }
-        addTask(newTask)
+
+        try {
+            await addTask(newTask)
+            alert('Task creata con successo')
+            setNameTasks('')
+            selectRef.current.value = 'To do'
+            descriptionRef.current.value = ''
+        } catch(error){
+            alert(error.message)
+        }
+
     }
 
     function isValidTask(userTask) {
@@ -34,7 +44,7 @@ export default function AddTask() {
         }
         return { validation: true, message: 'Nome Task valida' }
     }
-    const validationTask = useMemo(()=>isValidTask(nameTasks),[nameTasks]) 
+    const validationTask = useMemo(() => isValidTask(nameTasks), [nameTasks])
 
     return (
         <>
