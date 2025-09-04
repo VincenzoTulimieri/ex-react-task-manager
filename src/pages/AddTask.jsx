@@ -1,13 +1,16 @@
 import { useState, useRef, useMemo } from "react"
-import useTasks from "../hooks/useTasks"
+import { useContext } from "react"
+import { GlobalContext } from "../context/GlobalContext"
+import { useNavigate } from "react-router-dom"
 
 export default function AddTask() {
 
     const [nameTasks, setNameTasks] = useState('')
     const selectRef = useRef()
     const descriptionRef = useRef()
+    const navigate = useNavigate()
 
-    const { tasks, addTask, removeTask, updateTask } = useTasks()
+    const { tasks, addTask } = useContext(GlobalContext)
 
     async function sendDataTask(e) {
         e.preventDefault()
@@ -28,6 +31,7 @@ export default function AddTask() {
             setNameTasks('')
             selectRef.current.value = 'To do'
             descriptionRef.current.value = ''
+            navigate('/')
         } catch(error){
             alert(error.message)
         }
