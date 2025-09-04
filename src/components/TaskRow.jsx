@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function TaskRow({ title, status, id, createdAt }) {
 
     const formatted = new Date(createdAt)
@@ -8,7 +10,7 @@ export default function TaskRow({ title, status, id, createdAt }) {
         <>
             <tr>
                 <th scope="row">{id}</th>
-                <td>{title}</td>
+                <td><Link to={'task/:id'}className="vt-link" >{title}</Link></td>
                 <td className={statusCLass}>{status}</td>
                 <td>{createdDate}</td>
             </tr>
