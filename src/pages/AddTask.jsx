@@ -1,4 +1,5 @@
 import { useState, useRef, useMemo } from "react"
+import useTasks from "../hooks/useTasks"
 
 export default function AddTask() {
 
@@ -6,10 +7,12 @@ export default function AddTask() {
     const selectRef = useRef()
     const descriptionRef = useRef()
 
+    const {tasks, addTask, removeTask, updateTask} = useTasks()
+
     function sendDataTask(e) {
         e.preventDefault()
         const newTask = {
-            name: nameTasks,
+            title: nameTasks,
             status: selectRef.current.value,
             description: descriptionRef.current.value
         }
@@ -18,6 +21,7 @@ export default function AddTask() {
         } else {
             console.log('New Task:', newTask)
         }
+        addTask(newTask)
     }
 
     function isValidTask(userTask) {
@@ -62,7 +66,7 @@ export default function AddTask() {
                     <textarea className="form-control" placeholder="Descrizione" rows="3" ref={descriptionRef} id="descrizione"></textarea>
                 </div>
                 <div className="col-8 container-button">
-                    <button type="submit" className="btn btn-primary mb-3">Aggiungi Task</button>
+                    <button type="submit" className="btn btn-primary mb-3" disabled={!validationTask.validation} >Aggiungi Task</button>
                 </div>
             </form>
         </>
