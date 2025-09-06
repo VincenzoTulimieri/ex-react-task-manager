@@ -12,7 +12,7 @@ export default function TaskList() {
     return (
         <>
             <h1 className="mb-3">Lista delle Task</h1>
-            <table className="table table-dark table-bordered">
+            <table className="table table-light table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
