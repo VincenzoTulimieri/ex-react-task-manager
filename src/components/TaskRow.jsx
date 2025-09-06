@@ -10,7 +10,7 @@ export default function TaskRow({ title, status, id, createdAt }) {
     return (
         <>
             <tr>
-                <th scope="row">{id}</th>
+                <th scope="row">#</th>
                 <td><Link to={`task/${id}`}className="vt-link" >{title}</Link></td>
                 <td className={statusCLass}>{status}</td>
                 <td>{createdDate}</td>
