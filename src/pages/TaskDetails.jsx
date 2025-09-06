@@ -53,7 +53,7 @@ export default function TaskDetails() {
                         <button type="button" className="btn btn-danger" onClick={()=>setShow(true)}>Elimina Task</button>
                     </div>
                     {/* Modale */}
-                    <Modal title='Conferma Eliminazione' content='Sicuro di voler eliminare la task?' show={show} onClose={()=>setShow(false)} onConfirm={deleteTask} confirmText="Elimina"/>
+                    <Modal title='Conferma Eliminazione' content={<p>Sei sicuro di voler eliminarela la task?</p>} show={show} onClose={()=>setShow(false)} onConfirm={deleteTask} confirmText="Elimina"/>
                 </div>
             </div>
         </>
