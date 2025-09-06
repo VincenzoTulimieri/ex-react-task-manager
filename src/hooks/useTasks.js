@@ -42,7 +42,7 @@ export default function useTasks() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updateTask)
         })
-        const { success, message, newTask } = await response.json()
+        const { success, message, task: newTask } = await response.json()
         if (!success) {
             throw new Error(message)
         }
