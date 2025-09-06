@@ -64,7 +64,8 @@ export default function TaskDetails() {
                         <p className="card-text"><strong>Data di Creazione:</strong> {createdDate}</p>
                     </div>
                     <div className="col-12 flex-button">
-                        <button type="button" className="btn btn-primary" onClick={() => setshowModalEdit(true)}>Modifica Task</button>
+                        <button type="button" className="btn btn-primary" onClick={() =>navigate('/')}>Indietro</button>
+                        <button type="button" className="btn btn-success" onClick={() => setshowModalEdit(true)}>Modifica Task</button>
                         <button type="button" className="btn btn-danger" onClick={() => setShowModalDelete(true)}>Elimina Task</button>
                     </div>
                     {/* Modale di eliminazione task */}

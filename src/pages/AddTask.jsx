@@ -80,7 +80,7 @@ export default function AddTask() {
                     <textarea className="form-control" placeholder="Descrizione" rows="3" ref={descriptionRef} id="descrizione"></textarea>
                 </div>
                 <div className="col-8 container-button">
-                    <button type="submit" className="btn btn-primary mb-3" disabled={!validationTask.validation} >Aggiungi Task</button>
+                    <button type="submit" className="btn btn-success mb-3" disabled={!validationTask.validation} >Aggiungi Task</button>
                 </div>
             </form>
         </>
