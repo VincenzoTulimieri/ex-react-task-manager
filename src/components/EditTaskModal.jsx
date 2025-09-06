@@ -9,7 +9,7 @@ export default function EditTaskModal({ show, onClose, task, onSave }) {
     function changeTask(key, value) {
         setEditedTask(prev => ({ ...prev, [key]: value }))
     }
-    const sendUpdateTask = (event) =>{
+    const sendUpdateTask = (event) => {
         event.preventDefault()
         onSave(editedTask)
     }
@@ -23,9 +23,9 @@ export default function EditTaskModal({ show, onClose, task, onSave }) {
                             <label htmlFor="nome" className="mb-1"><strong>Nome:</strong></label>
                             <input type="text" id="nome" className="form-control mb-2" placeholder="Nome della task" value={title} onChange={(e) => changeTask('title', e.target.value)}></input>
                         </div>
-                        <div className="col-2">
+                        <div className="col-4">
                             <label htmlFor="select" className="mb-1"><strong>Stato:</strong></label>
-                            <select className="form-select" value={status} onChange={(e) => setNewStatus('status', e.target.value)} defaultValue='To do' id="select">
+                            <select className="form-select" value={status} onChange={(e) => changeTask('status', e.target.value)} id="select">
                                 <option value="To do">To do</option>
                                 <option value="Doing">Doing</option>
                                 <option value="Done">Done</option>
@@ -33,14 +33,14 @@ export default function EditTaskModal({ show, onClose, task, onSave }) {
                         </div>
                         <div className="col-8">
                             <label htmlFor="descrizione" className="mb-1"><strong>Descrizione:</strong></label>
-                            <textarea className="form-control" placeholder="Descrizione" rows="3" value={description} onChange={(e) => changeTask('desription', e.target.value)} id="descrizione"></textarea>
+                            <textarea className="form-control" placeholder="Descrizione" rows="3" value={description} onChange={(e) => changeTask('description', e.target.value)} id="descrizione"></textarea>
                         </div>
                     </form>
                 }
                 confirmText="Salva"
                 show={show}
                 onClose={onClose}
-                onConfirm={()=>formRef.current.requestSubmit()} />
+                onConfirm={() => formRef.current.requestSubmit()} />
         </>
     )
 }
