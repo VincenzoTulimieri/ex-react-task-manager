@@ -68,7 +68,7 @@ export default function TaskList() {
                 </div>
             </div>
             <table className="table table-light table-bordered">
-                <thead>
+                <thead >
                     <tr>
                         <th scope="col" className="hover-box-intestazione" onClick={() => orderTask('title')} >Nome</th>
                         <th scope="col" className="hover-box-intestazione" onClick={() => orderTask('status')}>Stato</th>
