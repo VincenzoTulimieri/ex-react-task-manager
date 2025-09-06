@@ -1,42 +1,55 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.vt-link{
+
+.vt-link {
   all: unset;
 }
-.vt-link:hover{
+
+.vt-link:hover {
   cursor: pointer;
 }
 
 /* colore status */
 
-.done{
+.done {
   background-color: #198754 !important;
 }
-.todo{
+
+.todo {
   background-color: #dc3545 !important;
 }
-.doing{
+
+.doing {
   background-color: #ffc107 !important;
 }
 
-.container-button{
+.container-button {
   display: flex;
   justify-content: center;
 }
 
-.modal-overlay{
-  display: block !important; 
-  background-color: rgba(0,0,0,0.5);
+.modal-overlay {
+  display: block !important;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.flex-button{
+.flex-button {
   display: flex;
   gap: 20px;
   justify-content: end;
 }
-.hover-box:hover{
-  opacity: 0.5;
+
+.hover-box:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.hover-box-intestazione:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
 }
