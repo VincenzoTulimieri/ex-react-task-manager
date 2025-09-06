@@ -10,7 +10,6 @@ export default function TaskRow({ title, status, id, createdAt }) {
     return (
         <>
             <tr>
-                <th scope="row">#</th>
                 <td className="hover-box"><Link to={`task/${id}`} className="vt-link" >{title}</Link></td>
                 <td className={statusCLass}>{status}</td>
                 <td>{createdDate}</td>
